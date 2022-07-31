@@ -88,3 +88,66 @@ function AddContact(firstName,lastName,address,city,state,zip,phoneNumber,Email)
 AddContact("Siddhant","Shrivastava","XYZ","Ujjain","MP","444444","91 7778888565","siddhant@gmail.com");
 AddContact("Riya","Sharma","XYZ","Ajmer","Rajasthan","545454","91 9997775554","riya@gmail.com");
 array.forEach(contactsDetails => console.log(contactsDetails.toString()));
+
+
+function FindandEditContact(){
+    try{
+        var readline = require('readline-sync');
+        let contactNameToBeEdited = readline.question("Enter the name of the Contact you want to edit: ");
+        array.forEach(contactsDetails => {
+            if (contactsDetails.firstName == contactNameToBeEdited){
+                while(true){
+                    var readline = require('readline-sync');
+                let choice = parseInt(readline.question("Enter choice of the Detail you want to edit:-\n1: First Name \n2: Last Name \n3: Address \n4: City \n5: State \n6: Zipcode \n7: Phone Number \n8: Email Address"));
+                switch (choice){
+                    case 1:
+                        let newFN = readline.question("Enter updated first name: ");
+                        contactsDetails.firstName = newFN;
+                        break;
+                    case 2:
+                        let newLN = readline.question("Enter updated last name: ");
+                        contactsDetails.lastName = newLN;
+                        break;
+                    case 3:
+                        let newAddress = readline.question("Enter updated address: ");
+                        contactsDetails.address = newAddress;
+                        break;
+                    case 4:
+                        let newCity = readline.question("Enter updated city: ");
+                        contactsDetails.city = newCity;
+                        break;
+                    case 5:
+                        let newState = readline.question("Enter updated state: ");
+                        contactsDetails.state = newState;
+                        break;
+                    case 6:
+                        let newZip = readline.question("Enter updated zip: ");
+                        contactsDetails.zip = newZip;
+                        break;
+                    case 7:
+                        let newPhoneNo = readline.question("Enter updated phone number: ");
+                        contactsDetails.phoneNumber = newPhoneNo;
+                        break;
+                    case 8:
+                        let newEmail = readline.question("Enter updated email: ");
+                        contactsDetails.eMail = newEmail;
+                        break;
+                    
+                    default:
+                        console.log("Enter valid choice");
+                        break;
+                    }
+                }
+            }
+        });
+    }
+    catch(ex){
+        console.error(ex);
+
+    }
+}
+FindandEditContact();
+array.forEach(contactsDetails => console.log(contactsDetails.toString()));
+
+
+
