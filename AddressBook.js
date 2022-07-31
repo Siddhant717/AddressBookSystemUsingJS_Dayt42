@@ -85,8 +85,8 @@ function AddContact(firstName,lastName,address,city,state,zip,phoneNumber,Email)
         console.error(ex);
     }
 }
-AddContact("Siddhant","Shrivastava","XYZ","Ujjain","MP","444444","91 7778888565","siddhant@gmail.com");
-AddContact("Riya","Sharma","XYZ","Ajmer","Rajasthan","545454","91 9997775554","riya@gmail.com");
+//AddContact("Siddhant","Shrivastava","XYZ","Ujjain","MP","444444","91 7778888565","siddhant@gmail.com");
+//AddContact("Riya","Sharma","XYZ","Ajmer","Rajasthan","545454","91 9997775554","riya@gmail.com");
 array.forEach(contactsDetails => console.log(contactsDetails.toString()));
 
 
@@ -174,6 +174,39 @@ function DeleteContact(){
 
 //UC6 Finding Number of Contacts 
 let noOfContacts = array.reduce((contactsDetails) => contactsDetails + 1,0);
-console.log("Number of Contacts = "+noOfContacts);
+//console.log("Number of Contacts = "+noOfContacts);
 
+
+//UC7 Ensure there is no duplicate entry for same person
+function dupicateCheckInAddContacts(){
+    var flag=0;
+    
+    var readline = require('readline-sync');
+    
+    let firstName = readline.question("Please enter the FirstName :");
+    for(let i=0;i<array.length;i++){
+        if(array[i].firstName == firstName){
+            flag=1;
+            console.log("Contact with this first name already exists!");
+        }
+    }
+    if(flag==0){
+       
+       let  lastName = readline.question("Please enter the LastName :");
+       let address = readline.question("Please enter the Address :");
+       let  city = readline.question("Please enter the City :");
+       let  state = readline.question("Please enter the State :");
+       let  zip = readline.question("Please enter the Zip :");
+       let phoneNumber = readline.question("Please enter the phoneNumber :");
+       let  email = readline.question("Please enter the EmailID :");
+
+       console.log("LastName "+lastName+ "Address "+address+"City "+city+
+       "State "+state+"Zip "+zip+"PhoneNumber "+phoneNumber+"Email "+email)
+      
+   
+    }
+}
+dupicateCheckInAddContacts();
+
+    
 
