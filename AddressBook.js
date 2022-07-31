@@ -146,8 +146,21 @@ function FindandEditContact(){
 
     }
 }
-FindandEditContact();
+//FindandEditContact();
+//array.forEach(contactsDetails => console.log(contactsDetails.toString()));
+
+function DeleteContact(){
+    try{
+        var readline = require('readline-sync');
+        let contactNameToBeDeleted = readline.question("Enter the name of the Contact you want to delete: ");
+        const indexOfArray = array.findIndex((contactDetails)=> contactDetails.firstName == contactNameToBeDeleted);
+        array.splice(indexOfArray,1);
+    }
+    catch(ex){
+        console.error(ex);
+    }
+}
+DeleteContact();
+console.log("contact deleted successfully");
 array.forEach(contactsDetails => console.log(contactsDetails.toString()));
-
-
 
