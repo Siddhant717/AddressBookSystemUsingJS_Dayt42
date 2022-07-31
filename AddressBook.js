@@ -98,7 +98,7 @@ function FindandEditContact(){
             if (contactsDetails.firstName == contactNameToBeEdited){
                 while(true){
                     var readline = require('readline-sync');
-                let choice = parseInt(readline.question("Enter choice of the Detail you want to edit:-\n1: First Name \n2: Last Name \n3: Address \n4: City \n5: State \n6: Zipcode \n7: Phone Number \n8: Email Address"));
+                let choice = parseInt(readline.question("Enter choice of the Detail you want to edit:-\n1: First Name \n2: Last Name \n3: Address \n4: City \n5: State \n6: Zipcode \n7: Phone Number \n8: Email Address\n9: Display"));
                 switch (choice){
                     case 1:
                         let newFN = readline.question("Enter updated first name: ");
@@ -132,7 +132,8 @@ function FindandEditContact(){
                         let newEmail = readline.question("Enter updated email: ");
                         contactsDetails.eMail = newEmail;
                         break;
-                    
+                    case 9:
+                        display();
                     default:
                         console.log("Enter valid choice");
                         break;
@@ -149,6 +150,12 @@ function FindandEditContact(){
 //FindandEditContact();
 //array.forEach(contactsDetails => console.log(contactsDetails.toString()));
 
+function display(){
+    for(let i=0;i<array.length;i++){
+        console.log(array[i].toString());
+    }
+}
+
 function DeleteContact(){
     try{
         var readline = require('readline-sync');
@@ -160,7 +167,13 @@ function DeleteContact(){
         console.error(ex);
     }
 }
-DeleteContact();
-console.log("contact deleted successfully");
-array.forEach(contactsDetails => console.log(contactsDetails.toString()));
+//DeleteContact();
+//console.log("contact deleted successfully");
+//array.forEach(contactsDetails => console.log(contactsDetails.toString()));
+
+
+//UC6 Finding Number of Contacts 
+let noOfContacts = array.reduce((contactsDetails) => contactsDetails + 1,0);
+console.log("Number of Contacts = "+noOfContacts);
+
 
