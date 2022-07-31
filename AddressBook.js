@@ -1,4 +1,3 @@
-
 //UC1 Ability to create a Address Book Contact with first and last names,address, city, state, zip, phone number and email
 class Contact{
     firstName;
